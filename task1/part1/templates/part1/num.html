@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% for i in list_num %}
+		<ul><li>{{i}}</li></ul>
+	{% endfor %}
+	<form action = "printn">
+		Enter starting point: <input type="text" name="start"><br>
+		Enter ending point: <input type="text" name="end"><br>
+		<input type="submit" name="submit">
+	</form>
+</body>
+</html>

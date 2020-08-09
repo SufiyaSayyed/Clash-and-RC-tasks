@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{%if result1 %}
+		{% for i in result1 %}
+			<ul><li>{{i}}</li></ul>
+		{% endfor %}
+	{% else %}
+		{{result2}}
+	{%endif%}
+</body>
+</html>
