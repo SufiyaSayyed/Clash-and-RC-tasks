@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+		<h3>
+		{% for message in messages%}
+			{{message}}
+		{% endfor %}
+		</h3>
+		<form method="POST">
+			{% csrf_token %}
+			Username:
+			<input type="username" name="username"><br><br>
+			Password:
+			<input type="password" name="password"><br><br>
+			<input type="submit" name="Log In" value="Login"><br><br>
+			<a href="{% url 'profile' %}">New member? Sign up from here</a>
+		</form>
+
+</body>
+</html>

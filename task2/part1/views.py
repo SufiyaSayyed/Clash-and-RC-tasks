@@ -1,31 +1,30 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Info
+from django.shortcuts import render, redirect
+from part1.models import Info
 
-def get_info(request):
-	
-	return render(request, 'part1/add_info.html')
-
-def add_info(request):
+def add(request):
 	if request.method == 'POST':
-		info = Info()
-		info.first_name = request.POST.get('first_name')
-		info.last_name = request.POST.get('last_name')
-		info.email = request.POST.get('email')
-		info.phone_num = request.POST.get('phone_num')
-		info.gender = request.POST.get('gender')
+
+		first_name = request.POST['first_name']
+		last_name = request.POST['last_name']
+		email = request.POST['email']
+		phone_no = request.POST['phone_no']
+		gender = request.POST['gender']
+
+		info = Info(first_name = first_name, last_name = last_name, email = email, phone_no = phone_no, gender = gender)
 		info.save()
 
-	return render(request, 'part1/add_info.html')
+		return redirect('add')
 
-def index(request):
-	info = Info.objects.all()
-	return render(request, 'part1/index.html',{'users': info})
+	else:
+		return render(request, 'part1/add.html')
 
-#def find_user(request):
-#	info = Info()
-#	if request.POST.get('email') == info.email:
-#		return render(request, 'part1/result.html')
-#	else:
-#		return render(request, 'part1/result.html',context={result="sorry user not found"})
-
+def find(request):
+	if request.method == 'POST':
+		email = request.POST['Email']
+		try:
+			info = Info.objects.get(email=email)
+			return render(request, 'part1/result.html',{'info': info, 'message': 'Found User'})
+		except:
+			return render(request, 'part1/result.html',{'message': 'sorry no user found'})
+	else:
+		return render(request, 'part1/find.html')
