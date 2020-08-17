@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+{% extends "part1/base.html" %}
+
+{% block content %}
 	{%if result1 %}
 		{% for i in result1 %}
 			<ul><li>{{i}}</li></ul>
@@ -11,5 +8,4 @@
 	{% else %}
 		{{result2}}
 	{%endif%}
-</body>
-</html>
+{% endblock %}

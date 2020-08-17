@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+{% extends "part1/base.html" %}
+
+{% block content %}
 	{% for i in list_num %}
 		<ul><li>{{i}}</li></ul>
 	{% endfor %}
@@ -12,5 +9,4 @@
 		Enter ending point: <input type="text" name="end"><br>
 		<input type="submit" name="submit">
 	</form>
-</body>
-</html>
+{% endblock%}
