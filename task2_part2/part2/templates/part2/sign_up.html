@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>sign up</title>
+</head>
+<body>
+		<h2>Sign Up Page</h2>
+		{% if message %}
+			<h3>{{message}}</h3>
+		{% endif %}
+
+		<form method="POST">
+		{% csrf_token %}
+		Username:
+		<input type="Username" name="username"><br><br>
+		Email:
+		<input type="email" name="email"><br><br>
+		First name:
+		<input type="text" name="first_name"><br><br>
+		Last name:
+		<input type="text" name="last_name"><br><br>
+		Phone Number:
+		<input type="number" name="phone_no"><br><br>
+		Password:
+		<input type="Password" name="password"><br><br>
+		Confirm password:
+		<input type="Password" name="confirm_password"><br><br>
+		<input type="submit" name="Login" value="Signup"><br><br>
+		</form>
+		<a href="{% url 'login' %}">Already signed up? Login from here</a>
+</body>
+</html>

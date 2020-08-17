@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Result</title>
+</head>
+<body>
+	<h3>{{ user }} logged in</h3><br><br>
+	<form action="{% url 'logout' %}" method="POST">
+	{% csrf_token %}
+	<input type="submit" name="logout" value="logout">
+	</form>
+</body>
+</html>
+
